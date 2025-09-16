@@ -1,0 +1,65 @@
+<h2>Person Form</h2>
+
+<form [formGroup]="personForm" (ngSubmit)="onSubmit()">
+  <label>Name:</label>
+  <input formControlName="name" type="text"><br/>
+
+  <label>Father Name:</label>
+  <input formControlName="fatherName" type="text"><br/>
+
+  <label>Mother Name:</label>
+  <input formControlName="motherName" type="text"><br/>
+
+  <label>Gender:</label>
+  <label *ngFor="let g of genders">
+    <input type="radio" [value]="g" formControlName="gender"/> {{g}}
+  </label><br/>
+
+  <label>Age:</label>
+  <input formControlName="age" type="number"><br/>
+
+  <label>Favorite Animal:</label>
+  <select formControlName="favoriteAnimal">
+    <option *ngFor="let a of animals" [value]="a">{{a}}</option>
+  </select><br/><br/>
+
+  <button type="submit">
+    {{ editMode() ? 'Update' : 'Save' }}
+  </button>
+</form>
+
+<hr/>
+
+<h3>Person List</h3>
+
+<div *ngIf="loading()">Loading...</div>
+
+<table border="1" *ngIf="!loading()">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Father Name</th>
+      <th>Mother Name</th>
+      <th>Gender</th>
+      <th>Age</th>
+      <th>Favorite Animal</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of persons()">
+      <td>{{p.name}}</td>
+      <td>{{p.fatherName}}</td>
+      <td>{{p.motherName}}</td>
+      <td>{{p.gender}}</td>
+      <td>{{p.age}}</td>
+      <td>{{p.animal}}</td>
+      <td>
+        <button (click)="onEdit(p)">Edit</button>
+        <button (click)="onDelete(p.id!)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>hi</h1>
