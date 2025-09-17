@@ -3,7 +3,7 @@ export interface Persons{
     name : string;
     fatherName : string;
     motherName : string;
-    gender : 'MALE' | 'FEMALE';
+    gender : 'MALE' | 'FEMALE' | 'OTHER';
     age : number;
     animal : 'CAT'| 'DOG' | 'TIGER' | 'LION' | 'HORSE'
-}
+}                                                                                                      

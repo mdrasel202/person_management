@@ -18,8 +18,8 @@ export class Person {
   loadAll() {
     this.loading.set(true);
     this.http.get<Persons[]>(this.apiUrl).subscribe({
-      next: (res) => this.persons.set(res),
-      complete: () => this.loading.set(false)
+      next: (res) => this.persons.update(()=> res),
+      complete: () => this.loading.update(()=>false),
     });
   }
 

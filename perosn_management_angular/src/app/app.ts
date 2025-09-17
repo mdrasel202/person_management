@@ -4,7 +4,7 @@ import { Personcomponent } from "./personcomponent/personcomponent";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Personcomponent],
+  imports: [Personcomponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
